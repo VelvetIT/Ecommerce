@@ -28,7 +28,12 @@ SECRET_KEY = config('env_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '[::1]',
+    '.localhost',
+    'kei-ecommerce.fly.dev'
+]
 # ALLOWED_HOSTS = ['*']
 
 DEBUG = True
@@ -83,8 +88,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
-    
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
@@ -92,7 +97,7 @@ ROOT_URLCONF = 'ecommerce.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['core/templates'], 
+        'DIRS': ['core/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,7 +135,7 @@ DATABASES = {
 # #     if "CI" in os.environ:
 # #         DATABASES["default"]["TEST"] = DATABASES["default"]
 
-    ### secomenta para usar local ###
+### secomenta para usar local ###
 # # DATABASES = {
 # #     'default': dj_database_url.config(
 # #         default=config('DATABASE_URL')
@@ -171,12 +176,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 INTERNAL_IPS = [
- 
+
     "127.0.0.1",
- 
+
 ]
 
-#cambiar aqui si no jala static 07:56 CF
+# cambiar aqui si no jala static 07:56 CF
 
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
